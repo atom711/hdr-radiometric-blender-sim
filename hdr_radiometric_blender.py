@@ -61,10 +61,16 @@ def execute_radiometric_blend(short_frame, med_frame, long_frame):
     norm_med = med_frame.astype(np.float64) / 1.0
     norm_long = long_frame.astype(np.float64) / 4.0
     
-    # Linear mathematical combination matrix
+    # 3. Execute the core weighted blend matrix fusion
     hdr_matrix = (norm_short * w_short + norm_med * w_med + norm_long * w_long) / sum_weights
     
-    return hdr_matrix, w_long
+    # Apply Non-Linear Logarithmic Tone Mapping for display
+    # This compresses the 800-count spikes while boosting the deep shadow counts
+    hdr_log = np.log1p(hdr_matrix)
+    hdr_scaled = (hdr_log / np.max(hdr_log)) * 255.0
+    
+    return hdr_scaled.astype(np.uint8), w_long
+
 
 # =====================================================================
 # 📊 AUTOMATED RADIOMETRIC LABORATORY DISPLAY DASHBOARD
