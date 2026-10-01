@@ -80,22 +80,22 @@ fig.suptitle("Multi-Exposure HDR Radiometric Blending Simulation", fontsize=13, 
 
 # Panel 1: Short Exposure (Highlight Optimized)
 im1 = axes[0, 0].imshow(img_short, cmap='gray', vmin=0, vmax=255)
-axes[0, 0].set_title("1. Short Exposure (Emitter Core Visible)")
+axes[0, 0].set_title("1. Short Exposure (Bright Object Visible)")
 fig.colorbar(im1, ax=axes[0, 0], fraction=0.046, pad=0.04)
 
 # Panel 2: Long Exposure (Shadow Optimized)
 im2 = axes[0, 1].imshow(img_long, cmap='gray', vmin=0, vmax=255)
-axes[0, 1].set_title("2. Long Exposure (Shadow Details Visible)")
+axes[0, 1].set_title("2. Long Exposure (Dark Object Visible)")
 fig.colorbar(im2, ax=axes[0, 1], fraction=0.046, pad=0.04)
 
 # Panel 3: Long Exposure Weight Map Distribution Matrix
 im3 = axes[1, 0].imshow(long_weight_map, cmap='jet', vmin=0, vmax=1)
-axes[1, 0].set_title("3. Long Exp Radiometric Weight Map Matrix")
+axes[1, 0].set_title("3. Long Exposure Mask")
 fig.colorbar(im3, ax=axes[1, 0], fraction=0.046, pad=0.04)
 
 # Panel 4: Final Corrected, Blended HDR Image
 im4 = axes[1, 1].imshow(fused_hdr, cmap='gray')
-axes[1, 1].set_title("4. Fused Blended HDR Output Matrix")
+axes[1, 1].set_title("4. Final Blended HDR Matrix")
 fig.colorbar(im4, ax=axes[1, 1], fraction=0.046, pad=0.04)
 
 plt.tight_layout()
