@@ -2,7 +2,7 @@
 
 ![System HDR Radiometric Blender Dashboard](hdr_radiometric_blender_plot.png)
 
-## What this Project Does
+## Project Overview
 This Python simulation models how to handle scenes with extreme, high-contrast lighting for electro-optical payload testing.
 
 Standard camera sensors have full-well capacity limits (how many photons a pixel can count before overflowing). Objects hidden in deep shadows can be captured with long exposures, but brighter objects are washed out from the collection of excess higher range counts. In a standard 0-255 dynamic range, the 255 limit is met for many more pixels, hence the wash out of bright objects. However, for shorter exposures the bright details are well-captured, but dark objects and shadows drop below the sensor's noise floor and are washed out on the low end of the dynamic range.
