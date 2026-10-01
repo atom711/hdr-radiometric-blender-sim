@@ -73,8 +73,6 @@ def execute_radiometric_blend(short_frame, med_frame, long_frame):
 
 
 # =====================================================================
-# 📊 AUTOMATED RADIOMETRIC LABORATORY DISPLAY DASHBOARD
-# =====================================================================
 width, height = 512, 512
 raw_scene = generate_high_contrast_target_scene(width, height)
 img_short, img_med, img_long = simulate_sensor_exposures(raw_scene)
